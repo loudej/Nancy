@@ -26,6 +26,18 @@
         {
             return value;
         }
+
+        public string SiteResource(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return value;
+
+            // TODO Lou: the ~ should be replaced with the appvdir or owin.RequestPathBase value
+            if (value.StartsWith("~/"))
+                return value.Substring(1);
+
+            return value;
+        }
     }
 
     public abstract class NancySparkView<TModel> : NancySparkView

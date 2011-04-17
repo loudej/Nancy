@@ -79,7 +79,7 @@ namespace Nancy.Hosting.Owin.Extensions
 
         private static string GetUri(IDictionary<string, object> environment)
         {
-            return string.Format("{0}{1}", environment["owin.RequestPathBase"], environment["owin.RequestPath"]);
+            return (string)environment["owin.RequestPath"];
         }
     }
 }
